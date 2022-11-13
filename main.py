@@ -6,8 +6,8 @@ from bs4 import BeautifulSoup
 import requests
 from decouple import config
 
-# Se True, irá salvar a lista de concursos dentro de um arquivo em /listas/arquivo_data_horario.json
-salvar_arquivo_json_on = False
+# Se 1, irá salvar a lista de concursos dentro de um arquivo em /listas/arquivo_data_horario.json
+salvar_json = config('SALVAR_ARQUIVO_JSON')
 
 
 def lista_concursos(uf):
@@ -84,12 +84,14 @@ lista_de_concursos = []
 # faz a extração dos dados a cada 6 horas
 if __name__ == '__main__':
     while True:
+        print('Iniciando scraping...')
+
         for uf in estados:
             lista_de_concursos.append(lista_concursos(uf))
 
         lista_de_concursos = json.dumps(lista_de_concursos)
 
-        if salvar_arquivo_json_on:
+        if salvar_json == '1':
             timestamps = time.strftime('%d_%m_%Y_as_%H_%M_%S')
             nome_arquivo = 'listas/concursos_extraidos_em_' + timestamps + '.json'
             with open(nome_arquivo, 'w') as f:
