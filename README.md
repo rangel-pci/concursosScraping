@@ -1,3 +1,3 @@
+<p>Python Web Scraper - Extracts public tenders (concursos público) from all 27 Brazil states every 6 hours and sends them to a consumer server.</p>
+<p>Check out the extracted data: <a href="concursos.rangelpereira.com">concursos.rangelpereira.com</a></p>
 <h6 align="center"><kbd><img src="https://github.com/rangel-pci/files/blob/master/web_scraper_python1.png" /></kbd></h6>
-
-<p>Web Scraping com Python que faz a extração de concursos públicos de cada estado do Brasil a cada 6 horas, os dados são enviados para uma API em Laravel responsável por armazenar e servir as informações.</p>
